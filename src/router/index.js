@@ -1,22 +1,27 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-
+import Login from '../views/Login.vue'
+import UserInfo from '../views/UserInfo.vue'
+import UserList from '../views/UserList.vue'
+import MedicineList from '../views/MedicineList.vue'
+import PetList from '../views/PetList.vue'
+import Message from '../views/Message.vue'
+import Swagger from '../components/swagger.vue'
 Vue.use(VueRouter)
-
 const routes = [
+  { path: '/', component: Login },
+  { path: '/login', component: Login },
   {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/home', component: Home,
+    children: [
+      { path: '/userinfo', component: UserInfo },
+      { path: '/userlist', component: UserList },
+      { path: '/medicinelist', component: MedicineList },
+	  { path: '/petlist', component: PetList },
+	  { path: '/meassage', component: Message },
+	  { path: '/swagger', component: Swagger }
+    ]
   }
 ]
 
