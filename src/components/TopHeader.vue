@@ -1,8 +1,7 @@
 <template>
   <div>
-    <el-menu :default-active="activeIndex" mode="horizontal" router>	
-		<img style="width: 40px;height: 40px;padding-right: 10px;margin-top: 10px;" src="../assets/icon/petlogo.png">
-		<a class="headertitle">宠物医院管理系统</a>
+    <el-menu  :default-active="activeIndex" mode="horizontal" router>	
+       <el-menu-item  >宠物医院管理系统</el-menu-item>
       <el-submenu index="2" style="float: right;padding-right:20px">
         <template slot="title">
           <el-avatar :src="avatorUrl" style="margin-right:10px" />
@@ -54,8 +53,5 @@ export default {
 };
 </script>
 <style scoped>
-	.headertitle {
-	 font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-	 font-size: 25px;
-	}
+
 </style>

@@ -5,8 +5,7 @@
 				<div class="grid-content bg-purple">
 					<div>
 						<el-row class="tac">
-							<el-menu class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" router>
-								
+							<el-menu class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" router>		
 								<el-menu-item index="/userlist">
 									<i class="el-icon-user" />
 									<span>用户管理</span>

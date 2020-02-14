@@ -21,4 +21,9 @@ export default {
   fill: currentColor;
   overflow: hidden;
 }
+.menua {
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 30px;
+}
 </style>

@@ -24,7 +24,7 @@
 			                :auto-upload="true"
 			                :http-request="handleHttpRequest"
 			                :before-upload="beforeAvatarUpload"
-			                :rules="userinforules"
+			              
 			              >
 			                <el-button type="primary" round size="mini">修改头像</el-button>
 			              </el-upload>
@@ -257,7 +257,7 @@ export default {
       const isJPG = file.type === "image/jpeg";
       const isLt2M = file.size / 1024 / 1024 < 2;
       if (!isJPG) {
-        this.$message.error("上传头像图片只能是 JPG 格式!");
+        this.$message.error("上传头像图片只能是 JPG /png格式!");
       }
       if (!isLt2M) {
         this.$message.error("上传头像图片大小不能超过 2MB!");
@@ -387,11 +387,7 @@ export default {
   margin-top: 20px;
   margin-left: 30px;
 }
-.menua {
-  margin-top: 20px;
-  margin-right: 20px;
-  margin-left: 30px;
-}
+
 .formcard {
   padding-top: 10px;
   width: 500px;
