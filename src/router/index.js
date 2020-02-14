@@ -9,9 +9,11 @@ import PetList from "../views/PetList.vue";
 import Message from "../views/Message.vue";
 import Swagger from "../components/swagger.vue";
 import Banner from '../views/Banner.vue'
+
+import Index from '../views/Index.vue'
 Vue.use(VueRouter);
 const routes = [
-  { path: "/", component: Login },
+  { path: "/", component: Index },
   { path: "/login", component: Login },
   {
     path: "/home",

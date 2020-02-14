@@ -11,7 +11,6 @@
         <el-menu-item @click="loginout" >退出</el-menu-item>
       </el-submenu>
       <el-menu-item style="float:right"></el-menu-item>
-     
     </el-menu>
   </div>
 </template>
@@ -41,7 +40,7 @@ export default {
         .then(function(response) {
           that.username = response.data.data.username;
          // that.$store.commit('updateAvatar',that.$baseUrl+response.data.data.avatar)
-          that.avatorUrl = that.$baseUrl+response.data.data.avatar;
+          that.avatorUrl = response.data.data.avatar;
          // console.log(that.$store.state.avatar);
         })
         .catch(e => {

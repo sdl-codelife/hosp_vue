@@ -24,7 +24,7 @@
 			                :auto-upload="true"
 			                :http-request="handleHttpRequest"
 			                :before-upload="beforeAvatarUpload"
-			              
+                      ref="avatar"
 			              >
 			                <el-button type="primary" round size="mini">修改头像</el-button>
 			              </el-upload>
@@ -249,7 +249,7 @@ export default {
         this.userinfoform.email = Response.data.data.email;
         this.userinfoform.phone = Response.data.data.phone;
         this.userinfoform.intro = Response.data.data.intro;
-        this.avatarUrl = this.$baseUrl + Response.data.data.avatar;
+        this.avatarUrl =  Response.data.data.avatar;
         this.userid = Response.data.data.userid;
       });
     },
@@ -270,7 +270,8 @@ export default {
       formdata.append("imgfile", imgfile);
       this.$fileRequest("/uploadimage", formdata)
         .then(res => {
-          const avatar = this.$baseUrl + res.data.data;
+          this.$refs.avatar.clearFiles();
+          const avatar = res.data.data;
           console.log(avatar + "  上传成功回返链接");
           this.avatarUrl = avatar;
           // this.$store.commit('updateAvatar',avatar)
