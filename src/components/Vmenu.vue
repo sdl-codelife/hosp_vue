@@ -1,11 +1,11 @@
 <template>
 	<div>
 		<el-row>
-			<el-col :span="8" class="vermenu">
+			<el-col :span="8" class="usermenu">
 				<div class="grid-content bg-purple">
 					<div>
 						<el-row class="tac">
-							<el-menu class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" router>		
+							<el-menu class="el-menu-vertical-demo" router>		
 								<el-menu-item index="/userlist">
 									<i class="el-icon-user" />
 									<span>用户管理</span>
@@ -52,20 +52,15 @@
 	export default {
 		name: 'Vmenu',
 		methods: {
-			handleOpen(key, keyPath) {
-				console.log(key, keyPath)
-			},
-			handleClose(key, keyPath) {
-				console.log(key, keyPath)
-			}
+			
 		}
 	}
 </script>
 
 <style scoped>
-	.vermenu {
-		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-		width: 180px;
-		margin: 10px;
-	}
+.usermenu {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  width: 180px;
+  margin: 10px;
+}
 </style>

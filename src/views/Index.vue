@@ -3,12 +3,12 @@
     <header>
       <el-menu mode="horizontal" router>
         <el-menu-item>宠物医院</el-menu-item>
-        <el-menu-item>首页</el-menu-item>
+        <el-menu-item index="/index">首页</el-menu-item>
         <el-menu-item>医疗服务</el-menu-item>
         <el-menu-item>医疗团队</el-menu-item>
         <el-menu-item>关于</el-menu-item>
         <el-menu-item>联系我们</el-menu-item>
-        <el-menu-item>登录</el-menu-item>
+        <el-menu-item> <router-link to="/login">登录</router-link> </el-menu-item>
       </el-menu>
     </header>
     <el-carousel :height="imgHeight+'px'" :interval="5000" arrow="always">
@@ -16,10 +16,9 @@
         <img ref="image" style="width:100%;" :src="item.url" />
       </el-carousel-item>
     </el-carousel>
-	<div class="service">
-		
-	</div>
+    <div class="service"></div>
   </div>
+
 </template>
 
 <script>
@@ -31,7 +30,7 @@ export default {
       this.imgHeight = this.$refs.image[0].height;
     });
   },
- 
+
   data() {
     return {
       imgHeight: "",
@@ -56,8 +55,8 @@ export default {
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
+.service {
+  width: 100%;
+  height: 400px;
 }
 </style>

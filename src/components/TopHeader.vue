@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-menu  :default-active="activeIndex" mode="horizontal" router>	
-       <el-menu-item  >宠物医院管理系统</el-menu-item>
+       <el-menu-item >宠物医院管理系统</el-menu-item>
       <el-submenu index="2" style="float: right;padding-right:20px">
         <template slot="title">
           <el-avatar :src="avatorUrl" style="margin-right:10px" />

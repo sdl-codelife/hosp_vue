@@ -177,7 +177,7 @@ export default {
       this.seebannerdialog = true;
       this.bannerinfo.id = row.id;
       this.bannerinfo.title = row.title;
-      this.bannerinfo.url = this.$baseUrl + row.url;
+      this.bannerinfo.url =  row.url;
     }
   }
 };

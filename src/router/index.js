@@ -13,8 +13,12 @@ import Banner from '../views/Banner.vue'
 import Index from '../views/Index.vue'
 Vue.use(VueRouter);
 const routes = [
-  { path: "/", component: Index },
-  { path: "/login", component: Login },
+  {path:'/index',component:Index},
+  {path:'/login',component:Login},
+  { path: "/",
+   component: Index, 
+   
+  },
   {
     path: "/home",
     component: Home,

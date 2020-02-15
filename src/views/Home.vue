@@ -6,7 +6,15 @@
       </el-header>
       <el-container>
         <el-aside width="200px">
-          <Vmenu></Vmenu>
+         <div v-if="usertype === 'admin'">
+           <Vmenu></Vmenu>
+         </div>
+         <div v-if="usertype === 'user'">
+           <UserMenu></UserMenu>
+         </div>
+         <div v-if="usertype === 'doctor'">
+          <DoctorMenu></DoctorMenu>
+         </div>
         </el-aside>
         <el-main>
           <router-view></router-view>
@@ -20,18 +28,33 @@
 import TopHeader from "../components/TopHeader";
 import Vmenu from "../components/Vmenu";
 import UserInfo from "../views/UserInfo";
+import UserMenu from "../components/UserMenu";
+import DoctorMenu from "../components/DoctorMenu";
 export default {
+  mounted() {
+    this.gotowhere();
+  },
   data() {
     return {
-      img: ""
+      menu: "",
+      img: "",
+      usertype:''
     };
   },
   name: "home",
   components: {
     TopHeader,
     UserInfo,
-    Vmenu
+    Vmenu,
+    UserMenu,
+    DoctorMenu
   },
-  methods: {}
+  methods: {
+    gotowhere() {
+      this.$getRequest("/getuserinfo").then(res => {
+        this.usertype = res.data.data.usertype;
+      });
+    }
+  }
 };
 </script>

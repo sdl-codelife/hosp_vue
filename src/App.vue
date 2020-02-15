@@ -9,7 +9,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 .toolbar {
   background: #f2f2f2;
   padding: 20px;
@@ -26,4 +26,5 @@ export default {
   margin-right: 20px;
   margin-left: 30px;
 }
+
 </style>
