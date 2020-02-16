@@ -11,6 +11,7 @@ import Swagger from "../components/swagger.vue";
 import Banner from '../views/Banner.vue'
 
 import Index from '../views/Index.vue'
+import UserPet from '../views/user/UserPet.vue'
 Vue.use(VueRouter);
 const routes = [
   {path:'/index',component:Index},
@@ -29,7 +30,8 @@ const routes = [
       { path: "/petlist", component: PetList },
       { path: "/message", component: Message },
       { path: "/swagger", component: Swagger },
-      { path: "/banner", component: Banner }
+      { path: "/banner", component: Banner },
+      { path: "/userpet", component: UserPet }
     ]
   }
 ];

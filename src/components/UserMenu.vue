@@ -6,7 +6,7 @@
 					<div>
 						<el-row class="tac">
 							<el-menu class="el-menu-vertical-demo" router>		
-								<el-menu-item index="userinfo">
+								<el-menu-item index="userpet">
 									<i class="el-icon-setting" />
 									<span slot="title">我的宠物</span>
 								</el-menu-item>
