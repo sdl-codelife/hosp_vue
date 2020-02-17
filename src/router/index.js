@@ -12,6 +12,7 @@ import Banner from '../views/Banner.vue'
 
 import Index from '../views/Index.vue'
 import UserPet from '../views/user/UserPet.vue'
+import RegistForm from '../views/user/RegistForm.vue'
 Vue.use(VueRouter);
 const routes = [
   {path:'/index',component:Index},
@@ -31,7 +32,8 @@ const routes = [
       { path: "/message", component: Message },
       { path: "/swagger", component: Swagger },
       { path: "/banner", component: Banner },
-      { path: "/userpet", component: UserPet }
+      { path: "/userpet", component: UserPet },
+      { path: "/registform", component: RegistForm }
     ]
   }
 ];
