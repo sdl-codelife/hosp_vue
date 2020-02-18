@@ -14,9 +14,9 @@
                   <i class="el-icon-setting" />
                   <span slot="title">快速挂号</span>
                 </el-menu-item>
-                <el-menu-item index="userinfo">
+                <el-menu-item index="/orderlist">
                   <i class="el-icon-setting" />
-                  <span slot="title">我的订单</span>
+                  <span slot="title">挂号单</span>
                 </el-menu-item>
                 <el-menu-item index="userinfo">
                   <i class="el-icon-setting" />
