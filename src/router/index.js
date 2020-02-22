@@ -8,20 +8,33 @@ import MedicineList from "../views/MedicineList.vue";
 import PetList from "../views/PetList.vue";
 import Message from "../views/Message.vue";
 import Swagger from "../components/swagger.vue";
-import Banner from '../views/Banner.vue'
+import Banner from "../views/Banner.vue";
 
-import Index from '../views/Index.vue'
-import UserPet from '../views/user/UserPet.vue'
-import RegistForm from '../views/user/RegistForm.vue'
-import OrderFrom from '../views/user/OrderForm.vue'
+import RegistView from '../views/doctor/RegistView.vue'
+
+import Index from "../views/Index.vue";
+import UserPet from "../views/user/UserPet.vue";
+import RegistForm from "../views/user/RegistForm.vue";
+import OrderFrom from "../views/user/OrderForm.vue";
+import OrderComp from "../views/user/OrderComp.vue";
+
+import test from '../views/test.vue'
+
+import userhome from '../views/user/userhomepage.vue'
+import userinfo from '../views/user/userinfo.vue'
 Vue.use(VueRouter);
 const routes = [
-  {path:'/index',component:Index},
-  {path:'/login',component:Login},
-  { path: "/",
-   component: Index, 
-   
-  },
+  {path:'/test',component:test},
+  
+  { path: "/index", component: Index,
+    children:[
+      {path:'/userhome',component:userhome},
+      {path:'/myuserinfo',component:userinfo},
+      { path: "/registform", component: RegistForm },
+      { path: "/userpet", component: UserPet },
+      { path: "/orderlist", component: OrderFrom },
+    ]},
+  { path: "/login", component: Login },
   {
     path: "/home",
     component: Home,
@@ -33,9 +46,9 @@ const routes = [
       { path: "/message", component: Message },
       { path: "/swagger", component: Swagger },
       { path: "/banner", component: Banner },
-      { path: "/userpet", component: UserPet },
-      { path: "/registform", component: RegistForm },
-      { path: "/orderlist", component: OrderFrom }
+      { path: "/ordercomp", component: OrderComp },
+      
+      {path:'/registview',component:RegistView}
     ]
   }
 ];

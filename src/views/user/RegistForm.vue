@@ -3,8 +3,8 @@
     <!-- 面包屑-->
     <div class="breadcrumb">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/Home' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>快速挂号</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/userhome' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item>快速预约挂号</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div class="menua">
@@ -18,7 +18,7 @@
       </el-steps>
       <el-row class="active0" v-show="active === 0">
         <el-form ref="registform" :model="registform" :rules="registrules" label-width="80px">
-          <el-form-item prop="date" label="挂号时间">
+          <el-form-item prop="date" label="预约时间">
             <el-date-picker
               :picker-options="pickerOptions"
               v-model="registform.date"
@@ -44,7 +44,6 @@
         <el-button style="margin-top: 12px;" @click="step1">下一步</el-button>
         <el-button style="margin-top: 12px;" @click="cancle">重置</el-button>
       </el-row>
-
       <el-row class="active0" v-show="active === 1">
         <el-form ref="doc" :model="registform" :rules="registrules" label-width="80px">
           <div>doctor</div>
@@ -65,14 +64,13 @@
       </el-row>
     </div>
     <el-row class="active0" v-show="active === 2">
-      <div style="margin-left:30px">
-        挂号成功！点击我的订单查看进度。
+      <div style="margin-left:50px">
+        预约成功。
       </div>
-      <svg class="suicon" aria-hidden="true">
-        
+      <svg class="suicon" aria-hidden="true">       
         <use xlink:href="#icon-wancheng" />
       </svg>
-       <el-button style="margin-top: 12px;margin-left:415px" @click="cancle">完成</el-button>
+       <el-button style="margin-top: 12px;margin-left:615px" @click="cancle">完成</el-button>
     </el-row>
   </div>
 </template>
@@ -174,6 +172,6 @@ export default {
   width: 600px;
 }
 .suicon{
-padding-left: 300px
+padding-left: 500px
 }
 </style>

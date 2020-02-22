@@ -53,8 +53,7 @@ export default {
           { min: 1, message: "长度太短", trigger: "blur" }
         ],
         verifycode: [
-          { required: true, message: "请输入验证码", trigger: "blur" },
-         
+          { required: true, message: "请输入验证码", trigger: "blur" }
         ]
       }
     };
@@ -82,10 +81,17 @@ export default {
           .then(function(response) {
             console.log(response);
             if (response.data.code == 200) {
-              that.$message.success("登录成功");
               // 登录成功跳转
               window.sessionStorage.setItem("token", response.data.data);
-              that.$router.push("/home");
+              that.$getRequest("/getuserinfo").then(res => {
+                var usertype = res.data.data.usertype;
+                if (usertype == "user") {
+                 that.$router.push("/userhome");
+                } else {
+                  that.$router.push("/home");
+                }
+              });
+              
             } else {
               that.$message({
                 message: response.data.msg,

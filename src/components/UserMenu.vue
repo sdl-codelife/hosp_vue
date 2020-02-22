@@ -14,10 +14,14 @@
                   <i class="el-icon-setting" />
                   <span slot="title">快速挂号</span>
                 </el-menu-item>
-                <el-menu-item index="/orderlist">
-                  <i class="el-icon-setting" />
-                  <span slot="title">挂号单</span>
-                </el-menu-item>
+                <el-submenu index>
+                  <template slot="title">
+                    <i class="el-icon-location"></i>
+                    <span>挂号单</span>
+                  </template>
+                  <el-menu-item index="/orderlist">正在诊断</el-menu-item>
+                  <el-menu-item index="/ordercomp">诊断完成</el-menu-item>
+                </el-submenu>
                 <el-menu-item index="userinfo">
                   <i class="el-icon-setting" />
                   <span slot="title">系统消息</span>

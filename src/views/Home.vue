@@ -9,9 +9,6 @@
          <div v-if="usertype === 'admin'">
            <Vmenu></Vmenu>
          </div>
-         <div v-if="usertype === 'user'">
-           <UserMenu></UserMenu>
-         </div>
          <div v-if="usertype === 'doctor'">
           <DoctorMenu></DoctorMenu>
          </div>

@@ -6,7 +6,7 @@
 					<div>
 						<el-row class="tac">
 							<el-menu class="el-menu-vertical-demo" router>		
-								<el-menu-item index="userinfo">
+								<el-menu-item index="/registview">
 									<i class="el-icon-setting" />
 									<span slot="title">快速诊断</span>
 								</el-menu-item>

@@ -3,7 +3,7 @@
     <!-- 面包屑-->
     <div class="breadcrumb">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path:'/Home' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path:'/userhome' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>我的宠物</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
@@ -175,6 +175,7 @@ export default {
       this.getuserpet();
       this.seepetdialog = false;
       this.$message.success("更新成功!");
+      this.getuserpet()
       this.$refs.updateimgref.clearFiles();
       if (null !== this.oldimg && this.oldimg.length > 5) {
         console.log(this.oldimg);
@@ -253,6 +254,7 @@ export default {
           this.petform.image = res.data.data.image;
           this.petform.id = res.data.data.id;
           this.petform.user = res.data.data.user;
+          this.getuserpet()
         })
         .catch(e => {
           console.log(e);
