@@ -10,7 +10,7 @@
 									<i class="el-icon-setting" />
 									<span slot="title">快速诊断</span>
 								</el-menu-item>
-								<el-menu-item index="userinfo">
+								<el-menu-item index="/seeregist">
 									<i class="el-icon-setting" />
 									<span slot="title">查看病历</span>
 								</el-menu-item>

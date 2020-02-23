@@ -86,7 +86,7 @@
           <el-button @click="step1" type="primary" size="mini">下一步</el-button>
         </div>
         <el-row v-show="active === 2">
-          <div style="margin-left:50px">诊断成功。</div>
+          <div style="margin-left:50px">诊断成功。打印挂号详单，药品列表，然后用户拿药付款,完成就诊。</div>
           <svg class="suicon" aria-hidden="true">
             <use xlink:href="#icon-wancheng" />
           </svg>
