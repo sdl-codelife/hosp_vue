@@ -14,7 +14,7 @@
 									<i class="el-icon-setting" />
 									<span slot="title">查看病历</span>
 								</el-menu-item>
-								<el-menu-item index="userinfo">
+								<el-menu-item index="/systemmessage">
 									<i class="el-icon-setting" />
 									<span slot="title">系统消息</span>
 								</el-menu-item>

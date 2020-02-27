@@ -44,11 +44,33 @@
       ></el-pagination>
     </div>
     <el-dialog title="查看详情" :visible.sync="seedetaildialog">
-      <el-collapse
-      <a>宠物名</a>
-      <a>主人</a>
-      <a>挂号时间</a>
-      <a>问题</a>
+      <el-row>
+        <el-col :span="6">单号:{{form.id}}</el-col>
+        <el-col :span="6">宠物名:{{form.name}}</el-col>
+        <el-col :span="6">时间:{{form.date}}</el-col>
+        <el-col :span="6">主人:{{form.userid}}</el-col>
+      </el-row>
+      <el-row>
+        <el-col>问题:</el-col>
+        <el-input type="textarea" :value="form.question"></el-input>
+      </el-row>
+      <el-row>
+        <el-col>诊断:</el-col>
+        <el-input type="textarea" :value="form.answer"></el-input>
+      </el-row>
+      <el-row>
+        <el-col>用药:</el-col>
+        <el-table :data="medicine" style="width: 100%" border>
+          <el-table-column type="index" width="60"></el-table-column>
+          <el-table-column prop="name" label="药品名"></el-table-column>
+          <el-table-column prop="num" label="数量"></el-table-column>
+          <el-table-column prop="price" label="单价"></el-table-column>
+          <el-table-column prop="allprice" label="总价"></el-table-column>
+        </el-table>
+      </el-row>
+      <div style="margin-left:300px"> 
+              <el-button @click="seedetaildialog = false" type="success" icon="el-icon-check" circle></el-button>
+            </div>
     </el-dialog>
   </div>
 </template>
@@ -60,6 +82,8 @@ export default {
   },
   data() {
     return {
+      form: {},
+      medicine: [],
       seedetaildialog: false,
       petname: "",
       orderdata: [],
@@ -95,9 +119,17 @@ export default {
       this.getorder();
     },
     seedetailhandle(row) {
-      console.log("diao");
-      
+      console.log(row);
+      this.form = Object.assign({}, row);
+      console.log(this.form);
+      this.getmedicine(row.id);
       this.seedetaildialog = true;
+    },
+    getmedicine(id) {
+      this.$getRequest("/getordermedicine?registid=" + id).then(res => {
+        console.log(res);
+        this.medicine = res.data.data;
+      });
     }
   }
 };

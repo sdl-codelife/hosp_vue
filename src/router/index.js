@@ -12,6 +12,7 @@ import Banner from "../views/Banner.vue";
 
 import RegistView from "../views/doctor/RegistView.vue";
 import SeeRegist from "../views/doctor/SeeRegist.vue";
+import SystemMessage from "../views/doctor/SystemMessage.vue"
 
 import Index from "../views/Index.vue";
 import UserPet from "../views/user/UserPet.vue";
@@ -19,13 +20,10 @@ import RegistForm from "../views/user/RegistForm.vue";
 import OrderFrom from "../views/user/OrderForm.vue";
 import OrderComp from "../views/user/OrderComp.vue";
 
-import test from "../views/test.vue";
-
 import userhome from "../views/user/userhomepage.vue";
 import userinfo from "../views/user/userinfo.vue";
 Vue.use(VueRouter);
 const routes = [
-  { path: "/test", component: test },
   { path: "/login", component: Login },
   {
     path: "/index",
@@ -52,7 +50,8 @@ const routes = [
       { path: "/banner", component: Banner },
       { path: "/ordercomp", component: OrderComp },
       { path: "/registview", component: RegistView },
-      { path: "/seeregist", component: SeeRegist }
+      { path: "/seeregist", component: SeeRegist },
+      { path: "/systemmessage", component: SystemMessage }
     ]
   }
 ];
