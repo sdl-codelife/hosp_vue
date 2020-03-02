@@ -6,7 +6,7 @@
       <el-menu-item index="service">医疗服务</el-menu-item>
       <el-menu-item index="team">医疗团队</el-menu-item>
       <el-menu-item index="about">关于</el-menu-item>
-      <el-menu-item index="us">联系我们</el-menu-item>
+      <el-menu-item index="/contact">联系我们</el-menu-item>
       <el-submenu v-if="usertype=='user'" index="2" style="float: right;padding-right:20px">
         <template slot="title">
           <el-avatar :src="user.avatar" style="margin-right:10px" />

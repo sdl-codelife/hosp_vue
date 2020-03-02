@@ -1,18 +1,19 @@
 <template>
   <div class="home">
     <el-container>
-      <el-header>
+      <el-header style="padding:0">
         <TopHeader></TopHeader>
       </el-header>
       <el-container>
         <el-aside width="200px">
-         <div v-if="usertype === 'admin'">
-           <Vmenu></Vmenu>
-         </div>
-         <div v-if="usertype === 'doctor'">
-          <DoctorMenu></DoctorMenu>
-         </div>
+          <div v-if="usertype === 'admin'">
+            <Vmenu></Vmenu>
+          </div>
+          <div v-if="usertype === 'doctor'">
+            <DoctorMenu></DoctorMenu>
+          </div>
         </el-aside>
+
         <el-main>
           <router-view></router-view>
         </el-main>
@@ -35,7 +36,7 @@ export default {
     return {
       menu: "",
       img: "",
-      usertype:''
+      usertype: ""
     };
   },
   name: "home",
@@ -55,3 +56,5 @@ export default {
   }
 };
 </script>
+<style scoped>
+</style>

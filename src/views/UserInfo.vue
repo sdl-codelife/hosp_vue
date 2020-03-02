@@ -3,7 +3,7 @@
     <!--面包屑 -->
     <div class="breadcrumb">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item>首页</el-breadcrumb-item>
         <el-breadcrumb-item>个人中心</el-breadcrumb-item>
       </el-breadcrumb>
     </div>

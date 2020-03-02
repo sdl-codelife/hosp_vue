@@ -13,6 +13,7 @@ import Banner from "../views/Banner.vue";
 import RegistView from "../views/doctor/RegistView.vue";
 import SeeRegist from "../views/doctor/SeeRegist.vue";
 import SystemMessage from "../views/doctor/SystemMessage.vue"
+import DoctorIndex from '../views/doctor/DoctorIndex.vue'
 
 import Index from "../views/Index.vue";
 import UserPet from "../views/user/UserPet.vue";
@@ -22,8 +23,12 @@ import OrderComp from "../views/user/OrderComp.vue";
 
 import userhome from "../views/user/userhomepage.vue";
 import userinfo from "../views/user/userinfo.vue";
+
+import Contact from '../views/website/Contact.vue'
+import test from '../views/test.vue'
 Vue.use(VueRouter);
 const routes = [
+  { path: "/test", component: test },
   { path: "/login", component: Login },
   {
     path: "/index",
@@ -34,7 +39,7 @@ const routes = [
       { path: "/registform", component: RegistForm },
       { path: "/userpet", component: UserPet },
       { path: "/orderlist", component: OrderFrom },
-      
+      { path: "/contact", component: Contact },
     ]
   },
   {
@@ -51,7 +56,8 @@ const routes = [
       { path: "/ordercomp", component: OrderComp },
       { path: "/registview", component: RegistView },
       { path: "/seeregist", component: SeeRegist },
-      { path: "/systemmessage", component: SystemMessage }
+      { path: "/systemmessage", component: SystemMessage },
+      { path: "/doctorindex", component: DoctorIndex }
     ]
   }
 ];

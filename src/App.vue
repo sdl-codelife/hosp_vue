@@ -10,6 +10,15 @@ export default {
 </script>
 
 <style >
+html{
+   margin: 0;
+  padding: 0;
+}
+body{
+  background-color: rgb(240, 242, 245);
+  margin: 0;
+  padding: 0;
+}
 .toolbar {
   background: #f2f2f2;
   padding: 20px;
@@ -25,6 +34,7 @@ export default {
   margin-top: 20px;
   margin-right: 20px;
   margin-left: 30px;
+ 
 }
 
 </style>

@@ -5,12 +5,28 @@
         <img ref="image" style="width:100%;" :src="item.url" />
       </el-carousel-item>
     </el-carousel>
-    <div class="service"></div>
-    <div>
-      sdl
+    <div class="main-con">
+      <div class="servicetitle">
+        <h2>医疗服务</h2>
+        <p>坚持“爱护动物，诚信经营”的宗旨。成功治愈的病例不计其数，深受广大宠物主人的好评</p>
+      </div>
+      <div class="row">
+        <el-row>
+          <el-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
+            <el-card :body-style="{ padding: '0px' }">
+              <img
+                src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+              />
+              <div style="padding: 14px;">
+                <span>好吃的汉堡</span>
+              </div>
+            </el-card>
+          </el-col>
+        </el-row>
+      </div>
     </div>
+    <div class="main-con intro_con"></div>
   </div>
-
 </template>
 
 <script>
@@ -26,7 +42,12 @@ export default {
   data() {
     return {
       imgHeight: "",
-      banner: []
+      banner: [],
+      card: [
+        { id: 0, title: "全科中心", intro: "balaabalalla" },
+        { id: 1, title: "全科中心", intro: "balaabalalla" },
+        { id: 2, title: "全科中心", intro: "balaabalalla" }
+      ]
     };
   },
   methods: {
@@ -47,8 +68,24 @@ export default {
 </script>
 
 <style scoped>
-.service {
+.main-con {
   width: 100%;
   height: 400px;
+  background-color: #f3f3f3;
+}
+.servicetitle {
+  text-align: center;
+  font-family: "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans,
+    Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB",
+    "Hiragino Sans GB W3", Roboto, Arial, sans-serif;
+}
+.intro_con {
+  background-color: #ffbc1b;
+}
+.servicecard {
+  width: 10000%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 </style>
