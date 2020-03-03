@@ -31,7 +31,7 @@
         <el-table-column prop="type" label="宠物种类"></el-table-column>
         <el-table-column prop="age" label="宠物年龄"></el-table-column>
         <el-table-column width="200px" label="操作">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-button @click="seepet(scope.row)" type="primary" size="small">查看</el-button>
 
             <el-button type="danger" @click="delpet(scope.row)" size="small">删除</el-button>
@@ -121,6 +121,7 @@
         </div>
       </el-dialog>
     </div>
+    <hr/>
   </div>
 </template>
 
@@ -287,4 +288,8 @@ export default {
 </script>
 
 <style>
+hr{
+  margin-top:100px;
+  color:#eaeefb;
+}
 </style>

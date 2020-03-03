@@ -19,7 +19,7 @@
         <el-table-column label="标题" width="150px" prop="title"></el-table-column>
         <el-table-column label="图片地址" prop="url"></el-table-column>
         <el-table-column width="200" label="操作">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-button size="small" @click="seebanner(scope.row)">查看</el-button>
             <el-button type="danger" @click="deltebanner(scope.row)" size="small">删除</el-button>
           </template>

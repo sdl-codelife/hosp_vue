@@ -29,7 +29,7 @@
         <el-table-column prop="createTime" label="创建时间"></el-table-column>
         <el-table-column prop="createUser" label="创建人"></el-table-column>
         <el-table-column width="200" label="操作">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-button size="small" @click="seemessage(scope.row)">查看</el-button>
             <el-button type="danger" @click="deltemessage(scope.row)" size="small">删除</el-button>
           </template>

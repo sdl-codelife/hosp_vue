@@ -32,7 +32,7 @@
         <el-table-column prop="age" label="宠物年龄"></el-table-column>
         <el-table-column prop="user" label="宠物主人ID"></el-table-column>
         <el-table-column width="200px" label="操作">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-button size="small" @click="editpethandle(scope.row)">编辑</el-button>
             <el-button type="danger" @click="delpet(scope.row)" size="small">删除</el-button>
           </template>

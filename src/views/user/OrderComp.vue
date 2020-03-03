@@ -9,7 +9,7 @@
       <el-table-column prop="doctorname" label="医生"></el-table-column>
       <el-table-column prop="question" width="300" label="问题"></el-table-column>
       <el-table-column width="100" label="操作">
-        <template scope="scope">
+        <template slot-scope="scope">
           <el-button type="danger" @click="deltemedicine(scope.row)" size="small">取消挂号</el-button>
         </template>
       </el-table-column>

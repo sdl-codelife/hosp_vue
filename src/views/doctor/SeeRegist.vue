@@ -27,7 +27,7 @@
         <el-table-column prop="date" label="挂号时间"></el-table-column>
         <el-table-column prop="question" label="问题"></el-table-column>
         <el-table-column width="150" label="操作">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-button type="danger" @click="seedetailhandle(scope.row)" size="small">查看详情</el-button>
           </template>
         </el-table-column>

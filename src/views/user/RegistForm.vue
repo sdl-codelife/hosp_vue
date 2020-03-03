@@ -72,6 +72,7 @@
       </svg>
        <el-button style="margin-top: 12px;margin-left:615px" @click="cancle">完成</el-button>
     </el-row>
+     <hr/>
   </div>
 </template>
 

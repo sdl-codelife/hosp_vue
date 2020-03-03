@@ -15,7 +15,7 @@
         <el-table-column prop="username" label="主人" sortable></el-table-column>
         <el-table-column prop="question" width="300" label="问题"></el-table-column>
         <el-table-column width="100" label="操作">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-button type="danger" @click="curepethandle(scope.row)" size="small">立即诊断</el-button>
           </template>
         </el-table-column>
@@ -77,7 +77,7 @@
             <el-table-column prop="num" label="药品库存(盒)"></el-table-column>
             <el-table-column prop="note" label="备注信息"></el-table-column>
             <el-table-column width="200" label="添加数量">
-              <template scope="scope">
+              <template slot-scope="scope">
                 <el-input-number v-model="anum" size="small" :min="1" label="描述文字"></el-input-number>
                 <el-button size="small" @click="ordermedic(scope.$index,scope.row)">添加</el-button>
               </template>

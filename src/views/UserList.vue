@@ -12,13 +12,13 @@
       <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
         <el-form :inline="true">
           <el-form-item>
-          <el-input prefix-icon="el-icon-search" clearable  placeholder='用户名' v-model="selectname"></el-input>
+            <el-input prefix-icon="el-icon-search" clearable placeholder="用户名" v-model="selectname"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button  @click="selectnamehandle" type="primary" >查询</el-button>
+            <el-button @click="selectnamehandle" type="primary">查询</el-button>
           </el-form-item>
           <el-form-item>
-            <el-button  @click="resetselecthandle" type="primary" >重置</el-button>
+            <el-button @click="resetselecthandle" type="primary">重置</el-button>
           </el-form-item>
           <el-form-item>
             <el-button @click="adduserdialog = true" type="primary">新增</el-button>
@@ -26,19 +26,14 @@
         </el-form>
       </el-col>
       <!--表格-->
-      <el-table
-        :data="usertabledata"
-        v-loading="listLoading"
-        style="width: 100%"
-        border
-      >
+      <el-table :data="usertabledata" v-loading="listLoading" style="width: 100%" border>
         <el-table-column type="index" width="60"></el-table-column>
         <el-table-column prop="userid" label="用户ID" width="100" sortable></el-table-column>
         <el-table-column prop="username" label="用户名"></el-table-column>
-        <el-table-column prop="realname" label="姓名" ></el-table-column>
+        <el-table-column prop="realname" label="姓名"></el-table-column>
         <el-table-column prop="sex" label="性别"></el-table-column>
-        <el-table-column prop="phone" label="电话" ></el-table-column>
-        <el-table-column prop="email" label="邮件" ></el-table-column>
+        <el-table-column prop="phone" label="电话"></el-table-column>
+        <el-table-column prop="email" label="邮件"></el-table-column>
         <el-table-column
           :filters="[{text: '管理员',value: 'admin'},{text:'用户',value: 'user'},{text:'医生',value:'doctor'}]"
           :filter-method="filterusertype"
@@ -51,7 +46,7 @@
           </template>
         </el-table-column>
         <el-table-column label="操作" width="200">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-button size="small" @click="edituserhandle(scope.$index, scope.row)">编辑</el-button>
             <el-button type="danger" @click="delteuser(scope.$index,scope.row)" size="small">删除</el-button>
           </template>
@@ -254,21 +249,25 @@ export default {
         pageSize: this.pagesize
       };
       console.log(pageParms);
-      this.$getRequest("/getalluser?" + "pageNo=" + this.currentpage+"&parms="+this.selectname).then(
-        res => {
-          if (res.data.code == 200) {
-            this.usertabledata = res.data.data.list; //每页数据
-            this.total = res.data.data.total; //总条数
-            this.pagesize = res.data.data.pageSize; //每页显示条数
-            this.pagecount = res.data.data.pages; //总页数
-            this.currentpage = res.data.data.pageNum; //当前页数
-            this.listLoading = false;
-          } else {
-            this.$message.error("拉取失败");
-            this.listLoading = false;
-          }
+      this.$getRequest(
+        "/getalluser?" +
+          "pageNo=" +
+          this.currentpage +
+          "&parms=" +
+          this.selectname
+      ).then(res => {
+        if (res.data.code == 200) {
+          this.usertabledata = res.data.data.list; //每页数据
+          this.total = res.data.data.total; //总条数
+          this.pagesize = res.data.data.pageSize; //每页显示条数
+          this.pagecount = res.data.data.pages; //总页数
+          this.currentpage = res.data.data.pageNum; //当前页数
+          this.listLoading = false;
+        } else {
+          this.$message.error("拉取失败");
+          this.listLoading = false;
         }
-      );
+      });
     },
     //删除一行
     delteuser(index, row) {
@@ -302,7 +301,6 @@ export default {
     updateuserinfo() {
       this.$confirm("确定更新 ？", "提示")
         .then(() => {
-         
           this.$putRequest("/updateUserinfo", this.editform)
             .then(res => {
               if (res.data.code == 200) {
@@ -332,7 +330,7 @@ export default {
             .then(res => {
               if (res.data.code == 200) {
                 this.$message.success("更新成功");
-                this.getalluser()
+                this.getalluser();
               }
             })
             .catch(e => {});
@@ -362,20 +360,19 @@ export default {
     //传入parms查找
     selectnamehandle() {
       this.listLoading = true;
-      this.getalluser()
+      this.getalluser();
       this.listLoading = false;
     },
     //重置搜索刷新列表
-    resetselecthandle(){
-       this.listLoading = true;
-       this.selectname = ''
-       this.getalluser()
-       this.listLoading = false;
+    resetselecthandle() {
+      this.listLoading = true;
+      this.selectname = "";
+      this.getalluser();
+      this.listLoading = false;
     }
   }
 };
 </script>
 
 <style scoped>
-
 </style>

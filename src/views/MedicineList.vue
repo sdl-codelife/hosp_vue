@@ -35,7 +35,7 @@
         <el-table-column prop="num" label="药品库存(盒)"></el-table-column>
         <el-table-column prop="note" label="备注信息"></el-table-column>
         <el-table-column width="200" label="操作">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-button size="small" @click="editmedichandle(scope.row)">编辑</el-button>
             <el-button type="danger" @click="deltemedicine(scope.row)" size="small">删除</el-button>
           </template>
