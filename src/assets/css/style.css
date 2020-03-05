@@ -78,7 +78,6 @@
   margin-left: 100px;
 }
 .introduction .right {
-   
   margin-left: 50px;
 }
 .introduction .right img {
@@ -88,4 +87,101 @@
   color: white;
   margin: 40px 0;
   font-size: 18px;
+}
+
+.newscontainer {
+  height: 100%;
+}
+.newscontant {
+  padding-top: 20px;
+  padding-right: 25px;
+}
+.newsleft {
+  width: 250px;
+  float: left;
+}
+.newstitlebox {
+  padding-top: 15px;
+  padding-left: 30px;
+  height: 80px;
+  background-color: white;
+}
+.newstitlebox h3 {
+  padding-left: 5px;
+  display: block;
+  border-left: 4px solid #0088b5;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.news {
+  padding-top: 15px;
+  padding-left: 15px;
+  margin-top: 15px;
+  background-color: white;
+}
+.news h3 {
+  display: block;
+  margin: 25px 15px 0 15px;
+  padding: 0 0 0 8px;
+  line-height: 1;
+  border-left: 4px solid #0088b5;
+  font-size: 22px;
+  font-weight: normal;
+}
+.news ul {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 10px 15px 20px 15px;
+  font-family: "microsoft yahei";
+}
+.news ul li {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 15px 0;
+  border-bottom: 1px solid #e9e9e9;
+}
+.news ul li a {
+  color: #333;
+  text-decoration: none;
+}
+.news a:hover {
+  color: royalblue;
+}
+.news ul li h6 {
+  display: block;
+  margin: 0;
+  font-size: 16px;
+}
+.newsright {
+  background-color: white;
+  margin-right: 100px;
+  margin-left: 300px;
+}
+.newsright .nav {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 50px;
+  border-bottom: 1px solid darkgray;
+}
+.newsright .nav ul li a {
+  color: #333;
+  font-size: 20px;
+  text-decoration: none;
+}
+.newsright .nav a:hover {
+  color: royalblue;
+}
+.newsright ul {
+  list-style-type: none;
+  font-family: "microsoft yahei";
+}
+.newsright ul li {
+  float: left;
+}
+.newsarticle {
+  line-height: 30px;
+  
 }

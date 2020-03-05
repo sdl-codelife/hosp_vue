@@ -3,9 +3,8 @@
     <el-menu mode="horizontal" router>
       <el-menu-item>宠物医院</el-menu-item>
       <el-menu-item index="/userhome">首页</el-menu-item>
-      <el-menu-item index="service">医疗服务</el-menu-item>
       <el-menu-item index="team">医疗团队</el-menu-item>
-      <el-menu-item index="about">关于</el-menu-item>
+      <el-menu-item index="/news">新闻中心</el-menu-item>
       <el-menu-item index="/contact">联系我们</el-menu-item>
       <el-submenu v-if="usertype=='user'" index="2" style="float: right;padding-right:20px">
         <template slot="title">

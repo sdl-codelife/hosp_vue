@@ -57,7 +57,18 @@
               <el-input v-model="editform.createTime"></el-input>
             </el-form-item>
             <el-form-item label="公告">
-              <el-input :rows="10" type="textarea" v-model="editform.content"></el-input>
+              <div class="markdown">
+                <div class="container">
+                  <mavon-editor
+                    v-model="content"
+                    ref="md"
+                    @imgAdd="$imgAdd"
+                    @imgDel="$imgdel"
+                    @change="change"
+                    style="min-height: 600px"
+                  />
+                </div>
+              </div>
             </el-form-item>
             <el-button @click="addmessagedialog = false" size="mini">取消</el-button>
             <el-button @click="addmessage" type="primary" size="mini">添加</el-button>
@@ -65,7 +76,7 @@
         </div>
       </el-dialog>
       <!-- 查看公告dialog -->
-      <el-dialog title="公告信息" :visible.sync="messagedialog">
+      <el-dialog title="新闻公告" :visible.sync="messagedialog">
         <div>
           <el-form ref="message" :model="message" label-width="70px" size="mini">
             <el-form-item label="标题">
@@ -78,9 +89,9 @@
               <el-input v-model="message.createTime"></el-input>
             </el-form-item>
             <el-form-item label="公告">
-              <el-input :rows="10" type="textarea" v-model="message.content"></el-input>
+              <div class="markdown-body" v-html="message.content"></div>
             </el-form-item>
-            <div style="margin-left:300px"> 
+            <div style="margin-left:300px">
               <el-button @click="seemessageok" type="success" icon="el-icon-check" circle></el-button>
             </div>
           </el-form>
@@ -91,12 +102,22 @@
 </template>
 
 <script>
+import { mavonEditor } from "mavon-editor";
+import "mavon-editor/dist/css/index.css";
 export default {
+  name: "",
+  props: [],
+  components: {
+    mavonEditor
+  },
   created() {
     this.getmessage();
   },
   data() {
     return {
+      content: "",
+      html: "",
+      configs: {},
       total: 0, //总条数
       pagesize: 6, //每页显示条数
       pagecount: 0, //总页数
@@ -157,6 +178,7 @@ export default {
       this.editform.createTime = strDate;
     },
     addmessage() {
+      this.editform.content = this.html;
       this.$postRequest("/addmessage", this.editform).then(res => {
         if (res.data.code == 200) {
           this.$message.success("添加成功");
@@ -196,7 +218,48 @@ export default {
     },
     seemessageok() {
       this.messagedialog = false;
-    }
+    },
+    // 将图片上传到服务器，返回地址替换到md中
+    $imgAdd(pos, $file) {
+      let formdata = new FormData();
+      this.$upload
+        .post("/上传接口地址", formdata)
+        .then(res => {
+          console.log(res.data);
+          this.$refs.md.$img2Url(pos, res.data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    $imgdel(pos) {
+      this.$deleteRequest("/delfile?url=" + pos[0]).then(res => {
+        if (res.data.code == 200) {
+          this.$message.success("删除成功");
+        }
+      });
+    },
+    // 所有操作都会被解析重新渲染
+    change(value, render) {
+      // render 为 markdown 解析后的结果[html]
+      this.html = render;
+    },
+    // 将图片上传到服务器，返回地址替换到md中
+    $imgAdd(pos, $file) {
+      console.log(pos);
+      console.log($file);
+      var formdata = new FormData();
+      formdata.append("file", $file);
+      this.$fileRequest("/uploadfile", formdata)
+        .then(res => {
+          console.log(res.data);
+          this.$refs.md.$img2Url(pos, res.data.data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    
   }
 };
 </script>

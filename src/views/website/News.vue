@@ -1,12 +1,8 @@
 <template>
   <div class="breadcrumb">
-    
     <div class="newscontainer">
       <div class="newscontant">
         <div class="newsleft">
-          <div class="newstitlebox">
-            <h3>联系我们</h3>
-          </div>
           <div class="news">
             <h3>新闻中心</h3>
             <ul>
@@ -20,18 +16,12 @@
         </div>
         <div class="newsright">
           <div class="newsarticle">
+            <h2>{{nownews.title}}</h2>
+            <a>时间：{{nownews.createTime}}</a>
+            <a>发布人：{{nownews.createUser}}</a>
+            <br />
+            <br />
             <div class="markdown-body markdown" v-html="html"></div>
-            <div v-show="html.length<1">
-              <div class="hospname">
-                <h2>漂亮宝贝动物医院</h2>
-                <ol>
-                  <li>营业时间：8:30-18:00</li>
-                  <li>北京市朝阳区平房东街口北侧</li>
-                  <li>服务电话：010-6542 1528 / 18501986699</li>
-                </ol>
-                <img :src="hospimg" />
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -40,17 +30,18 @@
   </div>
 </template>
 
-<script>
 
+<script>
+import "mavon-editor/dist/css/index.css";
 export default {
   mounted() {
     this.getmessage();
   },
   data() {
     return {
-      hospimg: require("/Users/sdl/Documents/sdl/src/assets/images/homepage/hospimg.jpg"),
       html: "",
-      news: []
+      news: [],
+      nownews:{}
     };
   },
   methods: {
@@ -58,24 +49,23 @@ export default {
       this.$getRequest("/getallmessage").then(res => {
         console.log(res);
         this.news = res.data.data.list;
+        this.seenews(this.news[0]);
       });
     },
     seenews(item) {
       console.log(item);
+      this.nownews = item
       this.html = item.content;
     }
   }
 };
 </script>
 
-<style scoped>
-
-.hospname h2{
- margin: 20px; 
+<style>
+.markdown {
+  padding: 10px;
 }
-.hospname img{
-  padding-left: 100px;
- width: 600px;
- height: 400px;
+.markdown img {
+  width: 400px;
 }
 </style>

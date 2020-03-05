@@ -24,7 +24,7 @@
                 </el-menu-item>
                 <el-menu-item index="/message">
                   <i class="el-icon-chat-line-square" />
-                  <span>系统公告</span>
+                  <span>新闻公告</span>
                 </el-menu-item>
                 <el-menu-item index="/banner">
                   <i class="el-icon-picture-outline" />
@@ -38,6 +38,7 @@
                   <i class="el-icon-document" />
                   <span slot="title">接口文档</span>
                 </el-menu-item>
+                
               </el-menu>
             </el-row>
           </div>

@@ -24,7 +24,10 @@ import OrderComp from "../views/user/OrderComp.vue";
 import userhome from "../views/user/userhomepage.vue";
 import userinfo from "../views/user/userinfo.vue";
 
+import MarkDown from '../views/admin/MarkDown.vue'
+
 import Contact from '../views/website/Contact.vue'
+import News from '../views/website/News.vue'
 import test from '../views/test.vue'
 Vue.use(VueRouter);
 const routes = [
@@ -40,6 +43,7 @@ const routes = [
       { path: "/userpet", component: UserPet },
       { path: "/orderlist", component: OrderFrom },
       { path: "/contact", component: Contact },
+      { path: "/news", component: News },
     ]
   },
   {
@@ -57,7 +61,8 @@ const routes = [
       { path: "/registview", component: RegistView },
       { path: "/seeregist", component: SeeRegist },
       { path: "/systemmessage", component: SystemMessage },
-      { path: "/doctorindex", component: DoctorIndex }
+      { path: "/doctorindex", component: DoctorIndex },
+      { path: "/mark", component: MarkDown }
     ]
   }
 ];

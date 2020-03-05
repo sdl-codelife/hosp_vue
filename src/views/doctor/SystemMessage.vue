@@ -34,7 +34,8 @@
       <a>发布人：{{opemmessage.createUser}}</a>
       <br />
       <br />
-      <a>{{opemmessage.content}}</a>
+     
+      <div class="markdown-body markdown" v-html="opemmessage.content"></div>
       <br />
       <el-button style="margin-top:20px" @click="seemessage = false" type="success" icon="el-icon-check" circle></el-button>
     </el-dialog>
