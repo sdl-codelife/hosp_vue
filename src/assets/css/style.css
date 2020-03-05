@@ -1,13 +1,91 @@
-.row {
-  margin-right: 15px;
-  margin-left: 15px;
+.service .titlebox {
+  text-align: center;
+  padding-top: 20px;
 }
-.service-card {
-	box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-	
-	
-	text-align: center;
+.service .titlebox h2 {
+  font-size: 28px;
 }
-.service-card h2{
-	padding: 10px;
+.service .titlebox p {
+  font-size: 16px;
+  color: #91969b;
+  margin-top: 11px;
+  margin-bottom: 11px;
+}
+.service .row {
+  margin-top: 20px;
+  height: 360px;
+}
+
+.service .row li {
+  float: left;
+  width: 20%;
+  list-style-type: none;
+  background-color: white;
+  margin-left: 40px;
+}
+.row ul li:hover b {
+  transform: scale(1.2);
+}
+
+.service .row li p {
+  overflow: hidden;
+  color: #888;
+  margin: 20px 20px;
+  height: 84px;
+}
+.service .row li b {
+  margin: 40px 20px 20px 70px;
+  display: block;
+  height: 80px;
+  width: 100px;
+  border-radius: 30px;
+  background: #006699 no-repeat center;
+}
+.service .row li b img {
+  width: 100px;
+  height: 80px;
+}
+.service .row li h3 {
+  font-size: 22px;
+  text-align: center;
+}
+
+.introduction {
+  background-color: #ffbc1b;
+  height: 360;
+}
+.introduction .linkbox {
+  margin-left: 10px;
+}
+
+.linkbox a {
+  color: royalblue;
+  font-size: 22px;
+}
+.introduction .left {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.introduction .abouttitle {
+  font-size: 20px;
+  color: white;
+  font-weight: normal;
+  margin: 60px 0 0 0;
+}
+.introduction .left {
+  width: 40%;
+  float: left;
+  margin-left: 100px;
+}
+.introduction .right {
+   
+  margin-left: 50px;
+}
+.introduction .right img {
+  margin: 60px 40px;
+}
+.introducebox {
+  color: white;
+  margin: 40px 0;
+  font-size: 18px;
 }

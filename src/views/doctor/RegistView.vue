@@ -78,7 +78,13 @@
             <el-table-column prop="note" label="备注信息"></el-table-column>
             <el-table-column width="200" label="添加数量">
               <template slot-scope="scope">
-                <el-input-number v-model="anum" size="small" :min="1" label="描述文字"></el-input-number>
+                <el-input-number
+                  v-model="anum"
+                  size="small"
+                  :min="1"
+                  :max="scope.row.num"
+                  label="描述文字"
+                ></el-input-number>
                 <el-button size="small" @click="ordermedic(scope.$index,scope.row)">添加</el-button>
               </template>
             </el-table-column>
@@ -157,19 +163,24 @@ export default {
       this.medicinedata = [];
     },
     ordermedic(index, row) {
+      console.log(row);
+
       this.medicinedata[index].num = row.num - this.anum;
       let torder = {
+        id: row.id,
         name: row.name,
         price: row.price,
         allprice: row.price * this.anum,
         registid: this.cureform.id,
         num: this.anum
       };
-      console.log(torder);
-
-      this.$postRequest("/addorder", torder).then(res => {
-        console.log(res);
-        this.$message.success("添加成功");
+      this.$putRequest("/ordermedicine", torder).then(res => {
+        if (res.data.code == 200) {
+          this.$postRequest("/addorder", torder).then(res => {
+            console.log(res);
+            this.$message.success("添加成功");
+          });
+        }
       });
     },
     over() {

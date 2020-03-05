@@ -52,7 +52,6 @@ export default {
     logout() {
       window.sessionStorage.clear();
       this.usertype = 'guest';
-      this.$message.success("退出成功");
       this.$router.push("/userhome");
     }
   }

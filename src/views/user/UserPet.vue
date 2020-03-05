@@ -290,6 +290,5 @@ export default {
 <style>
 hr{
   margin-top:100px;
-  color:#eaeefb;
 }
 </style>
