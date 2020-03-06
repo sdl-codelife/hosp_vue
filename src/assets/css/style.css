@@ -99,6 +99,7 @@
 .newsleft {
   width: 250px;
   float: left;
+ 
 }
 .newstitlebox {
   padding-top: 15px;
@@ -159,6 +160,7 @@
   background-color: white;
   margin-right: 100px;
   margin-left: 300px;
+  min-height: 600px;
 }
 .newsright .nav {
   padding-top: 10px;

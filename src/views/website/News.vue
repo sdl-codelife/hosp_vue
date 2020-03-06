@@ -16,11 +16,6 @@
         </div>
         <div class="newsright">
           <div class="newsarticle">
-            <h2>{{nownews.title}}</h2>
-            <a>时间：{{nownews.createTime}}</a>
-            <a>发布人：{{nownews.createUser}}</a>
-            <br />
-            <br />
             <div class="markdown-body markdown" v-html="html"></div>
           </div>
         </div>

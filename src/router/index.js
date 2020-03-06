@@ -28,6 +28,7 @@ import MarkDown from '../views/admin/MarkDown.vue'
 
 import Contact from '../views/website/Contact.vue'
 import News from '../views/website/News.vue'
+import Team from '../views/website/Team.vue'
 import test from '../views/test.vue'
 Vue.use(VueRouter);
 const routes = [
@@ -44,6 +45,7 @@ const routes = [
       { path: "/orderlist", component: OrderFrom },
       { path: "/contact", component: Contact },
       { path: "/news", component: News },
+      { path: "/team", component: Team },
     ]
   },
   {
