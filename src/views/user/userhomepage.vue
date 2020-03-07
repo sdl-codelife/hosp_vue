@@ -57,32 +57,32 @@ export default {
 
   data() {
     return {
-      homeimg:require('/Users/sdl/Documents/sdl/src/assets/images/homepage/homeimg.jpg'),
+      homeimg:require('../../assets/images/homepage/homeimg.jpg'),
       imgHeight: "",
       banner: [],
       servicecard: [
         {
           id: 0,
-          img: require("/Users/sdl/Documents/sdl/src/assets/images/homepage/a1.png"),
+          img: require("../../assets/images/homepage/a1.png"),
           title: "全科中心",
           intro:
             "愿为每一只宠物提供专业诊疗技术以及周到服务，专注于宠物各种常见病，更加坚持对疑难..."
         },
         {
           id: 1,
-          img: require("/Users/sdl/Documents/sdl/src/assets/images/homepage/a2.png"),
+          img: require("../../assets/images/homepage/a2.png"),
           title: "骨科中心",
           intro: "愿为每一只宠物提供专业诊疗技术以及周到服务，专注于宠物各种常见病，更加坚持对疑难..."
         },
         {
           id: 2,
-          img: require("/Users/sdl/Documents/sdl/src/assets/images/homepage/a3.png"),
+          img: require("../../assets/images/homepage/a3.png"),
           title: "手术中心",
           intro: "愿为每一只宠物提供专业诊疗技术以及周到服务，专注于宠物各种常见病，更加坚持对疑难..."
         },
         {
           id: 3,
-          img: require("/Users/sdl/Documents/sdl/src/assets/images/homepage/a4.png"),
+          img: require("../../assets/images/homepage/a4.png"),
           title: "全科中心",
           intro: "愿为每一只宠物提供专业诊疗技术以及周到服务，专注于宠物各种常见病，更加坚持对疑难..."
         }

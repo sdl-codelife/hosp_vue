@@ -13,6 +13,7 @@
           <el-input clearable style="width:150px" v-model="loginform.verifycode" />
           <img style="padding-left:20px" @click="refreshcode" :src="verifycodeimg" />
         </el-form-item>
+        <div><a href="#/register">还没有帐号，点击注册</a></div>
         <el-form-item class="btn_pos">
           <el-button @click="login" type="primary">登录</el-button>
           <el-button @click="resetform" type="info" plain>重置</el-button>
@@ -86,12 +87,11 @@ export default {
               that.$getRequest("/getuserinfo").then(res => {
                 var usertype = res.data.data.usertype;
                 if (usertype == "user") {
-                 that.$router.push("/userhome");
+                  that.$router.push("/userhome");
                 } else {
                   that.$router.push("/home");
                 }
               });
-              
             } else {
               that.$message({
                 message: response.data.msg,
@@ -110,7 +110,7 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style >
 .login_font {
   font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", "微软雅黑", Arial, sans-serif;

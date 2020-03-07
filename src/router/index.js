@@ -9,7 +9,7 @@ import PetList from "../views/PetList.vue";
 import Message from "../views/Message.vue";
 import Swagger from "../components/swagger.vue";
 import Banner from "../views/Banner.vue";
-
+import Register from '../views/Register.vue'
 import RegistView from "../views/doctor/RegistView.vue";
 import SeeRegist from "../views/doctor/SeeRegist.vue";
 import SystemMessage from "../views/doctor/SystemMessage.vue"
@@ -34,6 +34,7 @@ Vue.use(VueRouter);
 const routes = [
   { path: "/test", component: test },
   { path: "/login", component: Login },
+  {path: "/register", component: Register},
   {
     path: "/index",
     component: Index,

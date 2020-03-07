@@ -48,7 +48,7 @@ export default {
   },
   data() {
     return {
-      hospimg: require("/Users/sdl/Documents/sdl/src/assets/images/homepage/hospimg.jpg"),
+      hospimg: require("../../assets/images/homepage/hospimg.jpg"),
       html: "",
       news: []
     };
