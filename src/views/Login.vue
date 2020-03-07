@@ -51,7 +51,7 @@ export default {
         ],
         password: [
           { required: true, message: "请输入密码", trigger: "blur" },
-          { min: 1, message: "长度太短", trigger: "blur" }
+          { min: 3, message: "长度太短", trigger: "blur" }
         ],
         verifycode: [
           { required: true, message: "请输入验证码", trigger: "blur" }

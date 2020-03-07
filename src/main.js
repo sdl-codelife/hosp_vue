@@ -4,8 +4,7 @@ import router from './router'
 import './plugins/element.js'
 import './assets/icon/iconfont.js'
 import './assets/css/style.css'
-import mavonEditor from 'mavon-editor'
-import 'mavon-editor/dist/css/index.css'
+
 
 import {RequestValue} from './axios/index'
 import {postRequest} from './axios/index'
@@ -14,7 +13,7 @@ import {getRequest} from './axios/index'
 import {deleteRequest} from './axios/index'
 import {fileRequest} from './axios/index'
 
-Vue.use(mavonEditor)
+
 Vue.prototype.$RequestValue = RequestValue
 Vue.prototype.$postRequest = postRequest
 Vue.prototype.$putRequest = putRequest

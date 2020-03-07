@@ -24,6 +24,7 @@
 			                :auto-upload="true"
 			                :http-request="handleHttpRequest"
 			                :before-upload="beforeAvatarUpload"
+                      :rules='userinforules'
                       ref="avatar"
 			              >
 			                <el-button type="primary" round size="mini">修改头像</el-button>
@@ -47,13 +48,13 @@
 			            </el-form-item>
 			          </div>
 			          <div>
-			            <el-form-item label="邮箱">
-			              <el-input placeholder="请输入邮箱" v-model="userinfoform.email" prop="email"></el-input>
+			            <el-form-item label="邮箱"  prop="email">
+			              <el-input placeholder="请输入邮箱" v-model="userinfoform.email"></el-input>
 			            </el-form-item>
 			          </div>
 			          <div>
-			            <el-form-item label="手机号">
-			              <el-input placeholder="请输入手机号码" v-model="userinfoform.phone" prop="phone"></el-input>
+			            <el-form-item label="手机号" prop="phone">
+			              <el-input placeholder="请输入手机号码" v-model="userinfoform.phone" ></el-input>
 			            </el-form-item>
 			          </div>
 			          <div>
