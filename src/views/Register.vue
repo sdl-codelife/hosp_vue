@@ -1,39 +1,40 @@
 <template>
-  <div class="register_con">
-    <div class="login_form">
-      <label class="login_font">注册</label>
-      <el-form ref="register" :model="registerform" :rules="registerrules" label-width="80px">
-        <el-form-item label="用户名" prop="username">
-          <el-input v-model="registerform.username" />
-        </el-form-item>
-        <el-form-item label="密码" prop="password">
-          <el-input v-model="registerform.password" type="password" show-password />
-        </el-form-item>
-        <el-form-item label="确认密码" prop="repassword">
-          <el-input v-model="registerform.repassword" type="password" show-password />
-        </el-form-item>
-        <el-form-item label="真实姓名" prop="realname">
-          <el-input v-model="registerform.realname" />
-        </el-form-item>
-        <el-form-item label="手机号码" prop="phone">
-          <el-input v-model="registerform.phone" />
-        </el-form-item>
-        <el-form-item label="电子邮件" prop="email">
-          <el-input v-model="registerform.email" />
-        </el-form-item>
-        <div>
-          已有帐号?
-          <a href="#/login">登录</a>
-        </div>
-        <el-form-item class="btn_pos">
-          <el-button @click="register" type="primary">提交</el-button>
-          <el-button @click="resetform" type="info" plain>重置</el-button>
-        </el-form-item>
-      </el-form>
-    </div>
+  <div class="login-wrap">
+    <el-form
+     ref="register" :model="registerform" :rules="registerrules"
+      label-position="left"
+      label-width="0px"
+      class="demo-ruleForm login-container"
+    >
+      <h3 class="title">用户注册</h3>
+      <el-form-item prop="username">
+        <el-input v-model="registerform.username" type="text" auto-complete="off" placeholder="用户名"></el-input>
+      </el-form-item>
+      <el-form-item prop="password">
+        <el-input v-model="registerform.password" type="password" auto-complete="off" placeholder="密码"></el-input>
+      </el-form-item>
+       <el-form-item prop="repassword">
+        <el-input v-model="registerform.repassword" type="password" auto-complete="off" placeholder="重复密码"></el-input>
+      </el-form-item>
+       <el-form-item prop="phone">
+        <el-input v-model="registerform.phone" type="text" auto-complete="off" placeholder="手机号码"></el-input>
+      </el-form-item>
+       <el-form-item prop="email">
+        <el-input v-model="registerform.email" type="text" auto-complete="off" placeholder="电子邮件"></el-input>
+      </el-form-item>
+     
+      <div class="register">
+        已有帐号?
+        <a href="#/login">登录</a>
+      </div>
+
+      <el-form-item style="width:100%;">
+        <el-button  @click="register" type="primary" style="width:100%;">注册</el-button>
+      </el-form-item>
+    </el-form>
+    <div class="footer">Copyright © 2020</div>
   </div>
 </template>
-
 <script>
 export default {
   data() {
@@ -64,8 +65,8 @@ export default {
       if (value) {
         if (!reg.test(value)) {
           return callback(new Error("请输入正确的手机号码"));
-        }else {
-           callback();
+        } else {
+          callback();
         }
       } else {
         callback();
@@ -76,8 +77,8 @@ export default {
       if (value) {
         if (!reg.test(value)) {
           return callback(new Error("请输入正确的Email"));
-        }else {
-           callback();
+        } else {
+          callback();
         }
       } else {
         callback();
@@ -92,7 +93,7 @@ export default {
         realname: "",
         phone: "",
         email: "",
-        sex:'男'
+        sex: "男"
       },
       registerrules: {
         username: [
@@ -114,8 +115,8 @@ export default {
           { min: 3, message: "长度太短", trigger: "blur" },
           { validator: checkpasswordagain, trigger: "blur" }
         ],
-       phone:[ { validator: checkphone, trigger: "blur" }],
-       email:[ { validator: checkemail, trigger: "blur" }]
+        phone: [{ validator: checkphone, trigger: "blur" }],
+        email: [{ validator: checkemail, trigger: "blur" }]
       }
     };
   },
@@ -136,8 +137,12 @@ export default {
         this.$postRequest("/adduser", this.registerform).then(res => {
           if (res.data.code == 200) {
             console.log(res);
-
             this.$message.success("注册成功，将跳转到登录页面");
+            var t;
+            clearTimeout(t);
+            t = setTimeout(() => {
+              this.$router.push("/login");
+            }, 1000);
           }
         });
       });
@@ -147,13 +152,63 @@ export default {
 </script>
 
 <style scoped>
-.register_con {
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-  background-color: #ffff;
-  width: 500px;
-  height: 550px;
-  position: fixed;
-  top: 10%;
-  left: 30%;
+.login-wrap {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding-top: 5%;
+  background-image: url(../assets/images/bg3.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -moz-background-size:100% 100%; 
+}
+.login-container {
+  border-radius: 10px;
+  margin: 20px;
+  width: 350px;
+  padding: 30px 35px 15px 35px;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  text-align: left;
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+}
+.title {
+  margin: 0px auto 40px auto;
+  text-align: center;
+  color: #505458;
+}
+.register {
+  color: #505458;
+  margin-bottom: 10px;
+}
+.register a {
+  color: #505458;
+}
+.footer {
+  height: 200px;
+  margin-top: 50px;
+  bottom: 10px;
+  color: #505458;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC,
+    Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  font-feature-settings: "tnum";
+}
+.remember {
+  margin: 0px 0px 35px 0px;
+}
+.code-box {
+  text-align: right;
+  padding-right: 10%;
+  padding-top: 5px;
+}
+.codeimg {
+  height: 30px;
 }
 </style>
